@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Early Modern England Encyclopedia</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon_io/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/emee.css" />
+  <script src="js/nav.js" defer></script>
+</head>
+
+
+<body>
+  <header>
+    <button class="nav-list-btn" aria-label="Open navigation"></button>
+    <img src="img/logo.svg" alt="EMEE Placeholder Navigation Photo">
+    <nav>
+      <div class="navdropdown">
+        <a href="#">Theater</a>
+        <span class="caretdown"></span>
+        <div class="dropdown-menu">
+          <a href="#">Plays</a>
+          <a href="#">Playwrights</a>
+          <a href="#">Playhouses</a>
+          <a href="#">Actors</a>
+          <a href="#">Acting</a>
+        </div>
+      </div>
+      <div class="navdropdown">
+        <a href="#">History</a>
+        <span class="caretdown"></span>
+        <div class="dropdown-menu">
+          <a href="#">English History</a>
+          <a href="#">English Kings & Queens</a>
+          <a href="#">The Reformation</a>
+          <a href="#">London</a>
+          <a href="#">Daily Life</a>
+        </div>
+      </div>
+      <div class="navdropdown">
+        <a href="#">Culture</a>
+        <span class="caretdown"></span>
+        <div class="dropdown-menu">
+          <a href="#">Religion</a>
+          <a href="#">Race</a>
+          <a href="#">Gender</a>
+          <a href="#">Education</a>
+          <a href="#">Science</a>
+          <a href="#">Music</a>
+        </div>
+      </div>
+      <a href="#">Index</a>
+      <a href="#">About Us</a>
+    </nav>
+    <form
+  id="searchForm"
+  method="get"
+  action="search.html"
+  enctype="application/x-www-form-urlencoded"
+  accept-charset="utf-8"
+  class="searchbar"
+>
+  <input
+    id="q"
+    type="text"
+    name="q"
+    value=""
+    placeholder="Start your search"
+  />
+  <button type="submit" class="search-icon-btn" aria-label="Search"></button>
+</form>
+
+    <div class="nav-overlay" tabindex="-1">
+      <div class="nav-overlay-content">
+        <button class="nav-overlay-close" aria-label="Close navigation">&times;</button>
+        <a href="#">Theater</a>
+        <a href="#">History</a>
+        <a href="#">Culture</a>
+        <a href="#">Index</a>
+        <a href="#">About Us</a>
+      </div>
+    </div>
+  </header>
+ <div class="aside-modal-trigger">
+    <button id="asideIconBtn" aria-label="Show aside content"></button>
+  </div>
+  <div id="asideModal" class="aside-modal">
+    <div class="aside-modal-content">
+      <button class="aside-modal-close" aria-label="Close aside">&times;</button>
+      <!-- Aside Panel Content as Modal -->
+      <nav id="tabNavContainer">
+        <h2>On This Page</h2>
+        <ul id="tabNav">
+          <li class="tabNavItem">Content</li>
+          <li class="tabNavItem">Credits</li>
+          <li class="tabNavItem">Tools</li>
+          <li class="tabNavItem">About</li>
+        </ul>
+      </nav>
+      <div id="asideContentContainer">
+            <div id="tabContents">
+              <div id="asideContents" class="tabTxt">
+                <h2>Contents</h2>
+
+                <div data-el="list">
+                  <div data-el="item">
+                    <a href="#characters" id="charactersLink">Characters</a>
+                  </div>
+                </div>
+              </div>
+
+              <div id="asideCredits" class="tabTxt">
+                <h2>Credits</h2>
+
+                <div>
+                  <!--<div data-el="respStmt">
+                              
+                              <!-\-Self closing elements are bad-\->
+                              
+                              </div>-->
+                </div>
+
+                <!--Credits will go here-->
+              </div>
+
+              <div id="asideTools" class="tabTxt">
+                <h2>Tools</h2>
+
+                <div id="annotationToggle">
+                  <label for="annotation_button" class="control checkbox">
+                    <input
+                      id="annotation_button"
+                      type="checkbox"
+                      checked="checked"
+                    />
+                    Display annotations
+                  </label>
+                </div>
+
+                <div id="collationToggle">
+                  <label for="collation_button" class="control checkbox">
+                    <input
+                      id="collation_button"
+                      type="checkbox"
+                      checked="checked"
+                    />
+                    Display collations
+                  </label>
+                </div>
+
+                <div id="abbreviationToggle">
+                  <label for="abbreviation_button" class="control checkbox">
+                    <input id="abbreviation_button" type="checkbox" />
+                    Expand abbreviations
+                  </label>
+                </div>
+
+                <div id="correctionToggle">
+                  <label for="correction_button" class="control checkbox">
+                    <input id="correction_button" type="checkbox" />
+                    Show corrections
+                  </label>
+                </div>
+
+                <div id="additionToggle">
+                  <label for="addition_button" class="control checkbox">
+                    <input id="addition_button" type="checkbox" />
+                    Highlight additions
+                  </label>
+                </div>
+
+                <div id="deletionToggle">
+                  <label for="deletion_button" class="control checkbox">
+                    <input id="deletion_button" type="checkbox" />
+                    Hide deletions
+                  </label>
+                </div>
+              </div>
+
+              <div id="asideAbout" class="tabTxt">
+                <h2>About</h2>
+
+                <div id="seeXmlLink" data-el="list">
+                  <div data-el="item">
+                    <a href="#metadata" id="metadataLink">Metadata</a>
+                  </div>
+
+                  <div data-el="item" id="sourceXmlLink">Source XML</div>
+
+                  <div data-el="item" id="originalXmlLink">Original XML</div>
+
+                  <div data-el="item" id="standaloneXmlLink">
+                    Standalone XML
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="textcontent">
+        <h3>Early Modern England Encyclopedia</h3>
+        <p>A peer-reviewed student resource exploring the people, places, and performances of 1485–1700 England—with a special focus on Shakespeare and his world.</p>
+      </div>
+    <!-- Search Form -->
+      <form id="searchForm"
+  method="get"
+  action="search.html"
+  enctype="application/x-www-form-urlencoded"
+  accept-charset="utf-8"
+  class="herosearch"
+>
+  <input
+    id="q"
+    type="text"
+    name="q"
+    value=""
+    placeholder="Start your search"
+  />
+  <button type="submit" class="search-icon-btn" aria-label="Search"></button>
+</form>
+
+
+
+    </div>
+    <!-- Main Content -->
+    <div class="content">
+    <!-- Section 1 -->
+    <div class="section1">
+      <div class="header">
+        <h1> Explore Early Modern England</h2>
+        <p>This is a placeholder for the main content of the encyclopedia. Here you can find articles, images, and resources related to Early Modern England, including its history, culture, and notable figures.</p>
+      </div>
+      <div class="section1-content">
+        <div class="rowCards">
+          <div class="card">
+            <img src="img/cardImg/theatreImg_1.jpg" alt="Theatre">
+            <div class="card-content">
+              <h2>Theatre</h2>
+              <p>Explore the vibrant world of Early Modern theatre, including Shakespeare's plays and the cultural impact of performance.</p>
+              <ul>
+                <li><a href="#">Theatre History</a></li>
+                <li><a href="#">Famous Playwrights</a></li>
+                <li><a href="#">Notable Productions</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/cardImg/historyImg_1.jpg" alt="History">
+            <div class="card-content">
+              <h2>History</h2>
+              <p>Discover the events, people, and politics that shaped Early Modern England.</p>
+              <ul>
+                <li><a href="#">Key Events</a></li>
+                <li><a href="#">Historical Figures</a></li>
+                <li><a href="#">Political Movements</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/cardImg/cultureImg_3.jpg" alt="Culture">
+            <div class="card-content">
+              <h2>Culture</h2>
+              <p>Learn about the customs, beliefs, and daily life of people in Early Modern England.</p>
+              <ul>
+                <li><a href="#">Traditions</a></li>
+                <li><a href="#">Art & Music</a></li>
+                <li><a href="#">Food & Fashion</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Section 2 -->
+      <div class="section2">
+        <img src="img/cardImg/cultureImg_1.jpg" alt="Placeholder Image">
+         <div class="section2-content">
+        <div class="header">
+        <h1> Using EMEE in Your Work</h2>
+        <p>All entries are peer-reviewed, citable, and include curated images and sources. Use EMEE to enrich papers, projects, or presentations.</p>
+      </div>
+        <ul>
+          <li><a href="#"><span class="li-icon"></span>Teaching Resources</a></li>
+          <li><a href="#"><span class="li-icon"></span>Citation Guide</a></li>
+          <li><a href="#"><span class="li-icon"></span>Site Map</a></li>
+          <li><a href="#"><span class="li-icon"></span>A-Z Index</a></li>
+        </ul>
+      </div>
+     </div>
+
+
+
+
+    <!-- Section 3 -->
+    <div class="section3">
+      <div class="header">
+        <h1>Featured Pages</h1>
+        <p>EMEE is a collaborative project. We welcome contributions from students, scholars, and enthusiasts of Early Modern England. If you have expertise or resources to share, consider joining our community.</p>
+      </div>
+      <div class="section3-content">
+        <div class="rowCards">
+          <div class="articleCard">
+            <img src="img/contributeCardImg.jpg" alt="Contribute">
+            <div class="card-content">
+              <h4> Featured</h4>
+              <h2>The Dairy</h2>
+              <p>Among the most important duties of a housewife, especially a countrywoman, would be the production of dairy foods for her household. Common people, particularly those of the poorer classes, would have gotten much of their protein from cow’s milk (and occasionally ewe’s milk) products.</p>
+            </div>
+            <button class="articleCard-btn">Read More</button>
+          </div>
+          <div class="articleCard">
+            <img src="img/contributeCardImg.jpg" alt="Contribute">
+            <div class="card-content">
+              <h4> Featured</h4>
+              <h2>The Dairy</h2>
+              <p>Among the most important duties of a housewife, especially a countrywoman, would be the production of dairy foods for her household. Common people, particularly those of the poorer classes, would have gotten much of their protein from cow’s milk (and occasionally ewe’s milk) products.</p>
+            </div>
+            <button class="articleCard-btn">Read More</button>
+          </div>
+                    <div class="articleCard">
+            <img src="img/contributeCardImg.jpg" alt="Contribute">
+            <div class="card-content">
+              <h4> Featured</h4>
+              <h2>The Dairy</h2>
+              <p>Among the most important duties of a housewife, especially a countrywoman, would be the production of dairy foods for her household. Common people, particularly those of the poorer classes, would have gotten much of their protein from cow’s milk (and occasionally ewe’s milk) products.</p>
+            </div>
+            <button class="articleCard-btn">Read More</button>
+          </div>
+                    <div class="articleCard">
+            <img src="img/contributeCardImg.jpg" alt="Contribute">
+            <div class="card-content">
+              <h4> Featured</h4>
+              <h2>The Dairy</h2>
+              <p>Among the most important duties of a housewife, especially a countrywoman, would be the production of dairy foods for her household. Common people, particularly those of the poorer classes, would have gotten much of their protein from cow’s milk (and occasionally ewe’s milk) products.</p>
+            </div>
+            <button class="articleCard-btn">Read More</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Sponsors Section  -->
+    <div class="sponsors-section">
+      <div class="sponsors-content">
+        <div class="sponsors-text">
+          <p>Our collaborators and sponsors</p>
+        </div>
+        <div class="sponsors-logos">
+          <img src="img/sponsors/lemdoLogo.svg" alt="LEMDO Logo">
+          <img src="img/sponsors/sshrcLogo.svg" alt="SSHRC Logo">
+          <img src="img/sponsors/uovLogo.svg" alt="UOV Logo">
+          <img src="img/sponsors/uvicLogo.svg" alt="UVic Logo">
+          <img src="img/sponsors/uvuLogo.svg" alt="UVU Logo">
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footerLinkCategory">
+        <div class="footerHeader">
+          <h3>About Us</h3>
+        </div>
+        <ul class="footerLinks">
+          <li><a href="#">About EMEE</a></li>
+          <li><a href="#">Editor Bios</a></li>
+          <li><a href="#">Philosophy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footerLinkCategory">
+        <div class="footerHeader">
+          <h3>Academic Use</h3>
+        </div>
+        <ul class="footerLinks">
+          <li><a href="#">Teaching Resources</a></li>
+          <li><a href="#">Citation Guide</a></li>
+          <li><a href="#">Site Map</a></li>
+          <li><a href="#">A-Z Index</a></li>
+        </ul>
+      </div>
+      <div class="footerLinkCategory">
+        <div class="footerHeader">
+          <h3>Legal</h3>
+        </div>
+        <ul class="footerLinks">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Copyright</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footerLinkCategory">
+        <img src="img/favicon_io/logoPlaceHolder.svg" alt="EMEE Logo" class="footerLogo">
+        <p>Last modified: <time datetime="2023-10-01">October 1, 2023</time></p>
+        <p>Site Version: 1.0.0</p>
+        <p>SVN revision: 21606</p>
+      </div>
+    </div>
+    <div class="footer-disclosure">
+      <p>&copy; 2025 Early Modern England Encyclopedia (EMEE). Published by the University of Victoria as part of the LEMDO project.</p>
+      <div class="cc-Tag">
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
+        <img src="img/ccImg.png" alt="Creative Commons Logo" class="cc-logo">  
+      </div>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
